@@ -1,0 +1,18 @@
+{% extends "homepage.html" %}
+
+{% block titulo %}
+Perfil - {{usuario}}
+{% endblock %}
+
+{% block body %}
+<body>
+    <h1>Seja Bem vindo Vendedor {{usuario.nome_usuario}}</h1>
+    <p>Quais opções abaixo deseja:</p>
+    <a href="{{ url_for('cadastroprodutos', id_usuario=current_user.id_usuario) }}">Cadastro de Produtos</a>
+    <a href="{{ url_for('venda', id_usuario=current_user.id_usuario) }}">Venda de Produtos</a>
+
+
+    <a href="{{url_for('logout')}}">Sair</a>
+</body>
+{% endblock %}
+

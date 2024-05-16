@@ -1,0 +1,32 @@
+{% extends "homepage.html" %}
+
+{% block titulo %}
+Cadastro de Produtos
+{% endblock %}
+
+{% block body %}
+    <h1>Cadastro de Produtos</h1>
+    
+    {%block formulario%}
+    <!-- FORMULÁRIO DE LOGIN -->
+    <form method="POST"> <!-- POST manda infos. Lá no routes tem que falar que o método é POST tbm -->
+        <!-- SEGURANÇA -->
+         {{ form.csrf_token }} 
+        
+        {{ form.nome_produto.label() }}
+        {{ form.nome_produto() }}
+        
+        {{ form.quantidade.label() }}
+        {{ form.quantidade() }}
+
+        {{ form.price.label() }}
+        {{ form.price() }}
+
+        {{ form.botao_confirmacao() }}
+
+    </form>
+    {% endblock%}
+
+
+    <a href="{{url_for('perfil', id_usuario=current_user.id_usuario)}}">Menu Principal</a>
+{% endblock %}

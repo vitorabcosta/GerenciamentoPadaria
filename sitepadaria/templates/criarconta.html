@@ -1,0 +1,28 @@
+{% extends "homepage.html" %}
+
+{%block titulo %}
+    Criar Conta - Sistema Padaria
+{% endblock %}
+
+{% block formulario %}
+    <!-- FORMULÁRIO DE CRIAR CONTA -->
+    <form method="POST"> <!-- POST manda infos. Lá no routes tem que falar que o método é POST tbm -->
+        <!-- SEGURANÇA -->
+        {{ form.csrf_token }}
+        
+        {{ form.cpf_usuario.label() }}
+        {{ form.cpf_usuario() }}
+
+        {{ form.nome_usuario.label() }}
+        {{ form.nome_usuario() }}
+
+        {{ form.senha.label() }}
+        {{ form.senha() }}
+
+        {{ form.confirmacao_senha.label() }}
+        {{ form.confirmacao_senha() }}
+
+        {{ form.botao_confirmacao() }}
+
+    </form>
+{% endblock %}

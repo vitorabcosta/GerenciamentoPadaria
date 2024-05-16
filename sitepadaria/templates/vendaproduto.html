@@ -1,0 +1,49 @@
+{% extends "homepage.html" %}
+
+{% block titulo %}
+Venda de Produtos
+{% endblock %}
+
+{% block body %}
+<body>
+    <h1>Lista de Produtos</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td>{{ produto.nome_produto }}</td>
+                <td>{{ produto.quantidade }}</td>
+                <td>{{ produto.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% block formulario %}
+    <!-- FORMULÁRIO DE VENDA DE PRODUTOS -->
+    <form method="POST">
+        {{ form.csrf_token }}
+        
+        {{ form.nome_produto.label }}
+        {{ form.nome_produto }}
+
+        {{ form.quantidade.label }}
+        {{ form.quantidade }}
+
+        {{ form.valor_total.label }}
+        {{ form.valor_total }}
+
+        {{ form.botao_confirmacao }}
+
+    </form>
+    {% endblock %}
+
+</body>
+{% endblock %}

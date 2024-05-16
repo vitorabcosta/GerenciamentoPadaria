@@ -1,0 +1,36 @@
+<!--MINHA BASE HTML!!-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {%block titulo %}
+        Site Padaria
+        {% endblock %}
+    </title>
+</head>
+{%block body%}
+<body>
+    <h1>Seja Bem vindo a Padaria</h1>
+    <p>Site site site</p>
+
+    {%block formulario%}
+    <!-- FORMULÁRIO DE LOGIN -->
+    <form method="POST"> <!-- POST manda infos. Lá no routes tem que falar que o método é POST tbm -->
+        <!-- SEGURANÇA -->
+        {{ form.csrf_token }}
+        
+        {{ form.cpf_usuario.label() }}
+        {{ form.cpf_usuario() }}
+        
+        {{ form.senha.label() }}
+        {{ form.senha() }}
+
+        {{ form.botao_confirmacao() }}
+
+    </form>
+    {% endblock%}
+</body>
+{% endblock %}
+</html>
